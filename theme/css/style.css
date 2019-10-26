@@ -1,0 +1,25 @@
+body{
+    background: #fafafa;
+}
+
+.instagram-navbar .insta-logo{
+    width: 35px;
+}
+
+.input-instagram{
+   border:  solid 1px #dbdbdb;
+    border-radius: 4px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+
+.instagram-body .icons .post-info .user-image img{
+    width:50px
+}
+/*
+1 - row
+2- flex
+3- mx-0
+
+*/
