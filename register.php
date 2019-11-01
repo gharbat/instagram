@@ -16,7 +16,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="form-card border text-center p-4">
-                    <form action="handle/register.php" method="post">
+                        <form action="handle/register.php" method="post">
                         <div class="form-group">
                             <div class="logo">
                                 <img src="theme/img/insta-logo.png"  alt="">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="custom-button btn ">Sign up</button>
+                            <button class="custom-button btn " type="submit">Sign up</button>
                         </div>
 
                         <div class="form-group">
