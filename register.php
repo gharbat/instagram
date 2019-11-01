@@ -38,19 +38,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control custom-input"   placeholder="Mobile Number or Email">
+                            <input name="email" type="email" class="form-control custom-input"   placeholder="Mobile Number or Email">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control custom-input"   placeholder="Full name">
+                            <input name="name" type="text" class="form-control custom-input"   placeholder="Full name">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control custom-input"   placeholder="username">
+                            <input name="username" type="text" class="form-control custom-input"   placeholder="username">
                         </div>
 
                         <div class="form-group">
-                            <input type="password" class="form-control custom-input"   placeholder="password">
+                            <input name="password" type="password" class="form-control custom-input"   placeholder="password">
                         </div>
 
                         <div class="form-group">

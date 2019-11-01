@@ -1,17 +1,42 @@
 <?php
-// username => root
-// DB name => instagram
-// server address => 127.0.0.1 or localhost
-// password => ""
 
 
-$mysql = new mysqli('localhost','root','','instagram');
+$mysql = new mysqli('localhost','root','','newinstagram');
 
 
-$sql_command = "SELECT username FROM users ";
-$result = $mysql->query($sql_command);
-$result->fetch_assoc()
+
+
+
 //
+//
+//$query = "INSERT INTO employees (name, address, salary) VALUES (?, ?, ?, ?)";
+//
+//$stetment =$mysql->prepare($query);
+//$stetment->bind_param('ssss',$p1,$p2,$p3,$p4);
+//$p1 = "hello";
+//$p2 = "ggrr";
+//$p3 = "11";
+//$p3 = "4";
+//$stetment->execute();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //
 //$names =$result->fetch_all();
