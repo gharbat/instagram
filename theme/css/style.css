@@ -1,0 +1,122 @@
+body{
+    background: #fafafa;
+}
+
+.instagram-navbar .insta-logo{
+    width: 35px;
+}
+
+.input-instagram{
+   border:  solid 1px #dbdbdb;
+    border-radius: 4px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+
+.instagram-body .icons .post-info .user-image img{
+    width:50px
+}
+
+
+
+/*
+ Register Page
+*/
+
+.register-body{
+    margin-top: 3rem;
+}
+.register-body .form-card{
+    border-radius: 2px;
+    background: white;
+}
+
+.register-body .form-card .logo img{
+    width: 180px;
+}
+
+.register-body .form-card .slogan{
+    font-weight: 600;
+    line-height: 20px;
+    font-size: 17px;
+    color: #999;
+}
+
+.register-body .form-card .custom-line{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register-body .form-card .custom-line .insta-line{
+    width: 100%;
+    height: 2px;
+    background: #efefef;
+}
+
+.register-body .form-card .custom-line .word{
+    margin-left: 15px;
+    margin-right: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    font-size: 17px;
+    color: #999;
+}
+
+.register-body .form-card .warn-p{
+    color: #999;
+    margin: 10px 60px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+
+
+.custom-button{
+    background: #3897f0;
+    color: white;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.custom-input{
+    background: #fafafa;
+    padding: 9px 0 7px 8px;
+    font-size: 16px;
+}
+
+.custom-input:focus{
+    outline: none!important;
+    border: 1px solid darkgrey!important;
+    box-shadow: none!important;
+    background: #fafafa;
+}
+a{
+    color: #999;
+    font-weight: 600;;
+}
+
+.register-body .slider{
+    margin-left: 117px;
+    margin-top: 37px;
+    width: 100%;
+    height: 100%;
+    background-size: 454px 618px !important;
+    background: url("https://www.instagram.com/static/images/homepage/home-phones.png/43cc71bb1b43.png");
+    background-repeat: no-repeat ;
+}
+
+.register-body .slider img{
+    position: absolute;
+    top: 136px;
+    right: 47px;
+}
+/*
+1 - row
+2- flex
+3- mx-0
+
+*/
