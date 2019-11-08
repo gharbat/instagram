@@ -16,6 +16,12 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     }
 
 
+    $query = "SELECT id FROM users WHERE email = ? AND password = ?";
+    $stet = $mysql->prepare($query);
+    $stet->bind_param("ss",$p1,$p2);
+    $p1 = $email;
+    $p2 = md5($password);
+    $stet->execute();
 
 
 
