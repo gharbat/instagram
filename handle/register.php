@@ -29,23 +29,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
 
-
     $query = "INSERT INTO users (name,username,email,password) VALUES(?,?,?,?)";
-
-
     $stetment =$mysql->prepare($query);
-
     $stetment->bind_param('ssss',$p1,$p2,$p3,$p4);
-
     $p1 = $name;
     $p2 = $username;
     $p3 = $email;
-    $p4 = $password;
-
+    $p4 = md5($password);
     $stetment->execute();
 
 
-    header("location: http://localhost/instagram");
+    header("location: http://localhost/instagram/login");
 
 
 }

@@ -4,6 +4,16 @@
 $mysql = new mysqli('localhost','root','','newinstagram');
 
 
+//$query  = "SELECT name FROM users WHERE ID = 1 LIMIT 1";
+//$excute = $mysql->query($query);
+//
+//
+//echo "<pre>";
+//print_r($excute->fetch_assoc());
+//echo "</pre>";
+//
+//
+//echo $excute->fetch_assoc()['name']
 
 
 
