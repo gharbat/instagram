@@ -1,6 +1,5 @@
 <?php
 include_once ('include/config.php');
-
 if (!isset($_SESSION['user'])) {
     header("location: http://localhost/instagram/login.php");
 }
@@ -8,11 +7,13 @@ if (!isset($_SESSION['user'])) {
 
 <html>
 <head>
-    <title>Instagram</title>
+    <title>Instagram - add post</title>
     <link rel="stylesheet" href="theme/css/bootstrap.css">
     <link rel="stylesheet" href="theme/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
+
 <section class="instagram-navbar bg-white border-bottom">
     <nav class="navbar navbar-expand-lg navbar-light  container">
         <div class="container pl-0">
@@ -36,35 +37,28 @@ if (!isset($_SESSION['user'])) {
         </div>
     </nav>
 </section>
-<section class="instagram-body">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="card mt-5">
-                    <div class="icons bg-white px-3 py-2 d-flex flex-row justify-content-between align-items-center">
-                        <div class="post-info d-flex flex-row align-items-center">
-                            <div class="user-image">
-                                <img src="theme/img/profile.png" class="profile-image mr-3" alt="">
-                            </div>
-                            <div class="user-name">Folan Folani</div>
-                        </div>
-                        <div class="dots">
-                            ...
-                        </div>
-                    </div>
 
-                    <img src="theme/img/bg.jpg" class="img-fluid" alt="...">
+<section class="instagram-add-post">
+   <div class="container">
+       <div class="row">
+           <div class="col-lg-6">
+               <form action="handle/add-post.php" method="post">
+                   <div class="form-group">
+                       <textarea name="" id="" cols="30" rows="10" class="form-control">
 
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">group of cards</div>
-        </div>
-    </div>
+                       </textarea>
+                   </div>
+                   <div class="form-group">
+                       <input type="file" name="image" class="form-control">
+                   </div>
+                   <div class="form-group">
+                       <button type="submit">post to instagram</button>
+                   </div>
+               </form>
+           </div>
+           <div class="col-lg-6"></div>
+       </div>
+   </div>
 </section>
 </body>
-
-<script src="theme/js/bootstrap.js"></script>
 </html>
