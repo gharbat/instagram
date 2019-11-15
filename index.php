@@ -1,4 +1,12 @@
-<?php include_once ('include/config.php')?>
+<?php
+
+include_once ('include/config.php');
+
+
+if (!isset($_SESSION['user'])) {
+    header("location: http://localhost/instagram/login.php");
+}
+?>
 
 <html>
 <head>

@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $stetment->execute();
 
 
-    header("location: http://localhost/instagram/login");
+    header("location: http://localhost/instagram/login.php");
 
 
 }
