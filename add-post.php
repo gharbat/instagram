@@ -38,13 +38,17 @@ if (!isset($_SESSION['user'])) {
     </nav>
 </section>
 
-<section class="instagram-add-post">
+<section class="instagram-add-post mt-4">
    <div class="container">
        <div class="row">
            <div class="col-lg-6">
-               <form action="handle/add-post.php" method="post">
+               <div class="mb-3">
+                   Add new post
+               </div>
+               <form action="handle/add-post.php" method="post" enctype="multipart/form-data">
+
                    <div class="form-group">
-                       <textarea name="" id="" cols="30" rows="10" class="form-control">
+                       <textarea name="desc" id="" cols="30" rows="10" class="form-control">
 
                        </textarea>
                    </div>

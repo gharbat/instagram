@@ -4,34 +4,6 @@ session_start();
 $mysql = new mysqli('localhost','root','','newinstagram');
 
 
-//$query  = "SELECT name FROM users WHERE ID = 1 LIMIT 1";
-//$excute = $mysql->query($query);
-//
-//
-//echo "<pre>";
-//print_r($excute->fetch_assoc());
-//echo "</pre>";
-//
-//
-//echo $excute->fetch_assoc()['name']
-
-
-
-//
-//
-//$query = "INSERT INTO employees (name, address, salary) VALUES (?, ?, ?, ?)";
-//
-//$stetment =$mysql->prepare($query);
-//$stetment->bind_param('ssss',$p1,$p2,$p3,$p4);
-//$p1 = "hello";
-//$p2 = "ggrr";
-//$p3 = "11";
-//$p3 = "4";
-//$stetment->execute();
-
-
-
-
 
 
 
