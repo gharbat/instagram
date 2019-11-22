@@ -116,6 +116,33 @@ a{
 }
 
 
+.options{
+    display: flex;
+    flex-direction: row;
+}
+.options .love {
+    font-size: 25px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.options .comment {
+    cursor: pointer;
+    font-size: 25px;
+    margin-right: 1rem;
+}
+.options .share{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.information{
+    font-weight: bold;
+}
+
+
+
+
 
 /*
 1 - row
