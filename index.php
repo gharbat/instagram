@@ -127,11 +127,7 @@ $number = $execute->num_rows;//1
             .then(function (message) {
                 var x = message.data;
                 x =x.split("\n")[1];
-                /*
-                *  console.log(x)
-                *  console.log(message)
-                *  console.log(message.data)
-                * */
+
                 if (x == "insert"){
                     love.style.color = "red";
                     love.innerHTML = "<i class=\"fas fa-heart\"></i>";
@@ -143,9 +139,5 @@ $number = $execute->num_rows;//1
             });
     };
 
-    // love.innerHTML ="<i class=\"fas fa-heart\"></i>";
-
-
-    axios.get("handle/increment.php").then();
 </script>
 </html>

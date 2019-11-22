@@ -11,3 +11,13 @@ function getUserName($id){ // 5
 
     return $results['username'];
 }
+
+
+function getUserPosts($id){
+    $mysql = new mysqli('localhost','root','','newinstagram');
+
+    $query ="SELECT * FROM posts WHERE user_id = '$id'";
+    $execute = $mysql->query($query);
+
+    return $execute->fetch_all();
+}
