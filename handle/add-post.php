@@ -1,11 +1,12 @@
 <?php
 include_once "../include/config.php"; //
+
 if ($_SERVER['REQUEST_METHOD'] ===  "POST"){
 
     $desc = $_POST['desc'];
 
     if (isset($_FILES['image'])){
-        $image = $_FILES['image'];
+        $image = $_FILES['image']; // File
     }else{
         header("location: http://localhost/instagram/add-post.php");
     }
@@ -14,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] ===  "POST"){
     $image_name = $image['name'];
     $image_size = $image['size'];
     @$image_ext  = end(explode(".",$image_name));
+
 
     // TODO check for size  <  2MB
     // TODO check for type  ===  [png,gif,jpg]

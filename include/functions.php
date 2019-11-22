@@ -1,7 +1,7 @@
 <?php
 include_once ("config.php");
 
-function getUserName($id){
+function getUserName($id){ // 5
     $mysql = new mysqli('localhost','root','','newinstagram');
 
 

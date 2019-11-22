@@ -10,7 +10,10 @@ $query = "SELECT * FROM posts";
 $execute = $mysql->query($query);
 $posts = $execute->fetch_all();
 
-print_r($posts);
+$user_id =$_SESSION['user'];
+$check_number = "SELECT * FROM likes WHERE post_id = 3 AND user_id = '$user_id'";
+$execute = $mysql->query($check_number);
+$number = $execute->num_rows;//1
 ?>
 
 <html>
@@ -98,6 +101,19 @@ print_r($posts);
 <script>
 
 
+    var number =" <?php echo $number ?> ";// 1
+
+    var love= document.getElementById("love");
+    var likes= document.getElementById("likes-counter");
+    console.log(number);
+
+    if (number == 0){
+        love.style.color = "black";
+        love.innerHTML= "<i class=\"far fa-heart\"></i>";
+    } else{
+        love.style.color = "red";
+        love.innerHTML = "<i class=\"fas fa-heart\"></i>";
+    }
     var image = document.getElementById("image");
 
     image.ondblclick =function () {
@@ -105,37 +121,31 @@ print_r($posts);
     };
 
 
-    var love= document.getElementById("love");
-    var likes= document.getElementById("likes-counter");
 
     love.onclick = function () {
-
         axios.get("handle/increment.php?id=3")
-            .then(function () {
-                love.innerHTML ="<i class=\"fas fa-heart\"></i>";
-                love.style.color="red";
-                likes.innerText =parseInt(likes.innerText)  + 1;
-            })
-            .catch(function () {
-                console.log("bad ");
-            })
+            .then(function (message) {
+                var x = message.data;
+                x =x.split("\n")[1];
+                /*
+                *  console.log(x)
+                *  console.log(message)
+                *  console.log(message.data)
+                * */
+                if (x == "insert"){
+                    love.style.color = "red";
+                    love.innerHTML = "<i class=\"fas fa-heart\"></i>";
+
+                } else{
+                    love.style.color = "black";
+                    love.innerHTML= "<i class=\"far fa-heart\"></i>";
+                }
+            });
+    };
+
+    // love.innerHTML ="<i class=\"fas fa-heart\"></i>";
 
 
-
-
-
-        // axios.get('/user?ID=12345')
-        //     .then(function (response) {
-        //         // handle success
-        //         console.log(response);
-        //     })
-        //     .catch(function (error) {
-        //         // handle error
-        //         console.log(error);
-        //     })
-        //     .finally(function () {
-        //         // always executed
-        //     });
-    }
+    axios.get("handle/increment.php").then();
 </script>
 </html>
