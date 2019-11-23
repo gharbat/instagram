@@ -2,6 +2,11 @@
 include_once "include/config.php";
 include_once ('include/functions.php');
 
+if (!isset($_GET['id'])){
+    header("location: http://localhost/instagram");
+}
+
+
 
 $posts = getUserPosts($_GET['id']);
 ?>
@@ -37,6 +42,7 @@ $posts = getUserPosts($_GET['id']);
         </div>
     </nav>
 </section>
+
 <section class="user-profile">
     <div class="container">
         <div class="row mt-5 justify-content-center align-items-center">
@@ -45,14 +51,14 @@ $posts = getUserPosts($_GET['id']);
             </div>
             <div class="col-lg-4">
                 <div class="username-and-data align-items-center d-flex flex-row justify-content-between">
-                    <div class="username">Mohammad Gharbat</div>
+                    <div class="username"><?php echo getUserName($_GET['id'])?></div>
                     <button class="btn follow-button border ">follow</button>
                     <div class="more-option">...</div>
                 </div>
                 <div class="mt-2 analytics d-flex flex-row justify-content-between">
-                    <div>23 post </div>
-                    <div>399 followers</div>
-                    <div>392 following</div>
+                    <div><?php echo getNumPosts($_GET['id']) ?>  post </div>
+                    <div><?php echo getUserFollowers($_GET['id']) ?> followers</div>
+                    <div><?php echo getUserFollowing($_GET['id'])?>  following</div>
                 </div>
                 <div class="full-name mt-3 font-weight-bold">
                     Mohammad Sameeh Gharbat
