@@ -46,3 +46,14 @@ function getUserFollowing($id){
 
     return $execute->num_rows;
 }
+
+function getUserFullName($id){
+    $mysql = new mysqli('localhost','root','','newinstagram');
+
+
+    $query = "SELECT name FROM users WHERE id = '$id'";
+    $execute = $mysql->query($query);
+    $results = $execute->fetch_assoc();
+
+    return $results['name'];
+}

@@ -52,7 +52,7 @@ $posts = getUserPosts($_GET['id']);
             <div class="col-lg-4">
                 <div class="username-and-data align-items-center d-flex flex-row justify-content-between">
                     <div class="username"><?php echo getUserName($_GET['id'])?></div>
-                    <button class="btn follow-button border ">follow</button>
+                    <button class="btn follow-button border " id="follow"> follow</button>
                     <div class="more-option">...</div>
                 </div>
                 <div class="mt-2 analytics d-flex flex-row justify-content-between">
@@ -61,7 +61,7 @@ $posts = getUserPosts($_GET['id']);
                     <div><?php echo getUserFollowing($_GET['id'])?>  following</div>
                 </div>
                 <div class="full-name mt-3 font-weight-bold">
-                    Mohammad Sameeh Gharbat
+                   <?php echo getUserFullName($_GET['id'])?>
                 </div>
 
                 <div class="bio">
@@ -77,30 +77,11 @@ $posts = getUserPosts($_GET['id']);
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="row">
-                    <div class="col-lg-4 my-4">
-                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    <?php foreach ($posts as $post){ ?>
+                        <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/<?php echo $post[5] ?>" alt="">
                     </div>
-                    <div class="col-lg-4 my-4">
-                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
-                    </div>
-                    <div class="col-lg-4 my-4">
-                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
-                    </div>
-                    <div class="col-lg-4 my-4">
-                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
-                    </div>
-                    <div class="col-lg-4 my-4">
-                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
-                    </div>
-                    <div class="col-lg-4 my-4">
-                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
-                    </div>
-                    <div class="col-lg-4 my-4">
-                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
-                    </div>
-                    <div class="col-lg-4 my-4">
-                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
 
@@ -109,4 +90,22 @@ $posts = getUserPosts($_GET['id']);
     </div>
 </section>
 </body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var f = document.getElementById("follow");
+
+    f.onclick = function () {
+        axios.get("handle/make-follow.php?id="+ "<?php echo $_GET['id']?>")
+            .then(function (m) {
+                m=m.data;
+                m= m.split("\n");
+
+                if (m[1] == "insert"){
+                    f.innerText ="following";
+                } else{
+                    f.innerText ="follow";
+                }
+            })
+    }
+</script>
 </html>
