@@ -39,15 +39,66 @@ $posts = getUserPosts($_GET['id']);
 </section>
 <section class="user-profile">
     <div class="container">
-        <img src="theme/img/profile.png" alt="">
-        <div class="name"><?php echo getUserName($_GET['id']) ?></div>
-        
-        <div class="posts">
-            <?php foreach ($posts as $post) { ?>
+        <div class="row mt-5 justify-content-center align-items-center">
+            <div class="col-lg-3 text-left">
+                <img src="theme/img/profile.png" width="125" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-4">
+                <div class="username-and-data align-items-center d-flex flex-row justify-content-between">
+                    <div class="username">Mohammad Gharbat</div>
+                    <button class="btn follow-button border ">follow</button>
+                    <div class="more-option">...</div>
+                </div>
+                <div class="mt-2 analytics d-flex flex-row justify-content-between">
+                    <div>23 post </div>
+                    <div>399 followers</div>
+                    <div>392 following</div>
+                </div>
+                <div class="full-name mt-3 font-weight-bold">
+                    Mohammad Sameeh Gharbat
+                </div>
 
-            <img src="handle/<?php echo $post[5]?>" alt="">
-            
-            <?php } ?>
+                <div class="bio">
+                    some cool stuff goes here
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="user-posts mt-5 ">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    </div>
+                    <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    </div>
+                    <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    </div>
+                    <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    </div>
+                    <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    </div>
+                    <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    </div>
+                    <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    </div>
+                    <div class="col-lg-4 my-4">
+                        <img class="img-fluid" src="handle/uploads/image.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            </div>
         </div>
     </div>
 </section>

@@ -82,6 +82,9 @@ body{
     font-size: 14px;
 }
 
+.follow-button{
+    padding: 3px 30px;
+}
 .custom-input{
     background: #fafafa;
     padding: 9px 0 7px 8px;
