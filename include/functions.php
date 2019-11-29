@@ -57,3 +57,11 @@ function getUserFullName($id){
 
     return $results['name'];
 }
+
+function makeNotification($user_id, $other_id,$description){
+    $mysql = new mysqli('localhost','root','','newinstagram');
+
+    $query = "INSERT INTO notifications (user_id,other_id,description) VALUES ('$user_id','$other_id','$description') ";
+
+    $execute = $mysql->query($query);
+}

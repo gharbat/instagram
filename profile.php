@@ -64,6 +64,8 @@ $posts = getUserPosts($_GET['id']);
                    <?php echo getUserFullName($_GET['id'])?>
                 </div>
 
+           
+
                 <div class="bio">
                     some cool stuff goes here
                 </div>

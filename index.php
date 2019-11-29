@@ -43,7 +43,9 @@ $number = $execute->num_rows;//1
                 <input type="text" placeholder="search" class="w-100 input-instagram">
             </div>
             <div class="col-lg-4 text-right">
-                icons
+                <div class="icons">
+                    <i class="far fa-bell"></i>
+                </div>
             </div>
         </div>
     </nav>
@@ -69,11 +71,11 @@ $number = $execute->num_rows;//1
                         </div>
                     </div>
 
-                    <img id="image" src="handle/<?php echo $post[5] ?> " class="img-fluid" alt="...">
+                    <img id="image" ondblclick="likeAdder('<?php echo $post[0] ?>', '<?php echo $post[4] ?>')" src="handle/<?php echo $post[5] ?> " class="img-fluid" alt="...">
 
                     <div class="card-body">
                         <div class="options">
-                            <div class="love" id="love">
+                            <div class="love" onclick="likeAdder('<?php echo $post[0] ?>','<?php echo $post[4] ?>')" id="love-<?php echo $post[0] ?>">
                                 <i class="far fa-heart"></i>
                             </div>
                             <div class="comment">
@@ -103,29 +105,31 @@ $number = $execute->num_rows;//1
 
     var number =" <?php echo $number ?> ";// 1
 
-    var love= document.getElementById("love");
-    var likes= document.getElementById("likes-counter");
-    console.log(number);
-
-    if (number == 0){
-        love.style.color = "black";
-        love.innerHTML= "<i class=\"far fa-heart\"></i>";
-    } else{
-        love.style.color = "red";
-        love.innerHTML = "<i class=\"fas fa-heart\"></i>";
-    }
-    var image = document.getElementById("image");
-
-    image.ondblclick =function () {
-        alert("double click");
-    };
-
+    // var likes= document.getElementById("likes-counter");
+    // console.log(number);
+    //
+    // if (number == 0){
+    //     love.style.color = "black";
+    //     love.innerHTML= "<i class=\"far fa-heart\"></i>";
+    // } else{
+    //     love.style.color = "red";
+    //     love.innerHTML = "<i class=\"fas fa-heart\"></i>";
+    // }
+    // var image = document.getElementById("image");
+    //
+    // image.ondblclick =function () {
+    //     alert("double click");
+    // };
 
 
-    love.onclick = function () {
-        axios.get("handle/increment.php?id=3")
+
+    function likeAdder(postID /*1*/,author) {
+        var love= document.getElementById("love-"+postID );
+
+        axios.get("handle/increment.php?id="+postID + "&author="+author)
             .then(function (message) {
                 var x = message.data;
+                console.log(x);
                 x =x.split("\n")[1];
 
                 if (x == "insert"){
@@ -137,7 +141,8 @@ $number = $execute->num_rows;//1
                     love.innerHTML= "<i class=\"far fa-heart\"></i>";
                 }
             });
-    };
+
+    }
 
 </script>
 </html>
