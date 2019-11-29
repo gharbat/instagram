@@ -1,7 +1,7 @@
 <?php
 include_once ("config.php");
 
-function getUserName($id){ // 5
+function getUserName($id){ // 11
     $mysql = new mysqli('localhost','root','','newinstagram');
 
 
@@ -13,7 +13,7 @@ function getUserName($id){ // 5
 }
 
 
-function getUserPosts($id){
+function getUserPosts($id){// 11
     $mysql = new mysqli('localhost','root','','newinstagram');
 
     $query ="SELECT * FROM posts WHERE user_id = '$id'";
@@ -23,7 +23,7 @@ function getUserPosts($id){
 }
 
 
-function getNumPosts($id){
+function getNumPosts($id){ // 11
     $mysql = new mysqli('localhost','root','','newinstagram');
     $query = "SELECT * FROM posts WHERE user_id = '$id'";
     $execute= $mysql->query($query);
