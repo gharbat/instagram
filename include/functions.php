@@ -65,3 +65,23 @@ function makeNotification($user_id, $other_id,$description){
 
     $execute = $mysql->query($query);
 }
+
+function checkNotification($user_id){
+    $mysql = new mysqli('localhost','root','','newinstagram');
+
+    $query = "SELECT * FROM notifications WHERE other_id = '$user_id' AND showed = 0";
+
+    $execute =$mysql->query($query);
+
+
+    return $execute->num_rows;
+
+}
+
+
+function markNotification($user_id){
+    $mysql = new mysqli('localhost','root','','newinstagram');
+    $query ="UPDATE notifications SET showed = 1 WHERE other_id = '$user_id' ";
+
+    $execute = $mysql->query($query);
+}

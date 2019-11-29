@@ -42,8 +42,14 @@ $number = $execute->num_rows;//1
             <div class="col-lg-4 text-center">
                 <input type="text" placeholder="search" class="w-100 input-instagram">
             </div>
-            <div class="col-lg-4 text-right">
+            <div class="col-lg-4 text-right d-flex flex-row justify-content-between">
+                <div class="username">
+                    <?php echo getUserName($_SESSION['user']) ?>
+                </div>
                 <div class="icons">
+                    <?php if (checkNotification($_SESSION['user'])) { ?>
+                    <div class="circle"></div>
+                        <?php } ?>
                     <i class="far fa-bell"></i>
                 </div>
             </div>

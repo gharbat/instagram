@@ -144,7 +144,14 @@ a{
 }
 
 
-
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 500px;
+    background: red;
+    position: absolute;
+    right: 10px;
+}
 
 
 /*
