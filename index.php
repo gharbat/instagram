@@ -6,6 +6,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 
+
 $query = "SELECT * FROM posts";
 $execute = $mysql->query($query);
 $posts = $execute->fetch_all();
