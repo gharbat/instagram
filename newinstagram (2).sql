@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2019 at 09:24 AM
+-- Generation Time: Nov 30, 2019 at 08:33 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -60,12 +60,20 @@ CREATE TABLE `likes` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `likes`
+-- Table structure for table `notifications`
 --
 
-INSERT INTO `likes` (`id`, `post_id`, `user_id`) VALUES
-(76, 3, 11);
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `other_id` int(11) NOT NULL,
+  `time` date DEFAULT NULL,
+  `description` text NOT NULL,
+  `showed` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -82,14 +90,6 @@ CREATE TABLE `posts` (
   `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `posts`
---
-
-INSERT INTO `posts` (`id`, `text`, `likes`, `type`, `user_id`, `image`) VALUES
-(3, '\r\n                       hekd', 226, '1', 11, 'uploads/without-CDN.png'),
-(4, 'rfewfewfew', NULL, '1', 11, 'uploads/FORC Logo.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -102,18 +102,9 @@ CREATE TABLE `users` (
   `username` varchar(256) NOT NULL,
   `password` text NOT NULL,
   `email` text NOT NULL,
-  `mobile` text DEFAULT NULL
+  `mobile` text DEFAULT NULL,
+  `bio` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `email`, `mobile`) VALUES
-(9, '56465', 'jnlknln', '202cb962ac59075b964b07152d234b70', 'h@h.vom', NULL),
-(10, 'wefwef', 'vew', 'eb071842192cf929e5c7931cb237d158', 'Rrger@greh.vom', NULL),
-(11, 'Hello', 'Hellop', '202cb962ac59075b964b07152d234b70', 'tester@tester.com', NULL),
-(12, 'hello2', 'hello2', '202cb962ac59075b964b07152d234b70', 'hello2@hello2.com', NULL);
 
 --
 -- Indexes for dumped tables
@@ -135,6 +126,12 @@ ALTER TABLE `followers`
 -- Indexes for table `likes`
 --
 ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -164,25 +161,31 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `followers`
 --
 ALTER TABLE `followers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
