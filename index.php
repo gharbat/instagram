@@ -5,9 +5,8 @@ if (!isset($_SESSION['user'])) {
     header("location: http://localhost/instagram/login.php");
 }
 
-
-
-$query = "SELECT * FROM posts";
+$user = $_SESSION['user'];
+$query = "SELECT * FROM posts where user_id IN ( SELECT follow FROM followers WHERE user_id = '$user' )";
 $execute = $mysql->query($query);
 $posts = $execute->fetch_all();
 
@@ -71,7 +70,11 @@ $number = $execute->num_rows;//1
                             <div class="user-image">
                                 <img  src="theme/img/profile.png" class="profile-image mr-3" alt="">
                             </div>
-                            <div class="user-name"><?php echo getUserName($post[4]) ?></div>
+                            <div class="user-name">
+                                <a href="profile.php?id=<?php echo $post[4] ?>">
+                                    <?php echo getUserName($post[4]) ?>
+                                </a>
+                            </div>
                         </div>
                         <div class="dots">
                             ...
@@ -92,10 +95,23 @@ $number = $execute->num_rows;//1
                         </div>
 
                         <div class="information mt-3">
-                           <span id="likes-counter"> <?php echo $post[2]?></span> likes
+                           <span id="likes-counter-<?php echo $post[0]?>"><?php echo getPostLikes($post[0])?></span> likes
                         </div>
-                        <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text mt-3"><?php echo $post[1]?></p>
 
+                        <?php
+                        $comments = getPostComments($post[0]);
+
+                        ?>
+
+                        <?php foreach ($comments as $comment) { ?>
+                            <div> <?php echo $comment[1] ?></div>
+                        <?php } ?>
+                        <form action="handle/comment.php?post-id=<?php echo $post[0] ?>" method="POST" >
+                            <div class="form-group">
+                                <input type="text" name="comment" class="form-control">
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <?php } ?>
@@ -138,14 +154,16 @@ $number = $execute->num_rows;//1
                 var x = message.data;
                 console.log(x);
                 x =x.split("\n")[1];
-
+                var counter  = document.getElementById("likes-counter-"+postID);
                 if (x == "insert"){
                     love.style.color = "red";
                     love.innerHTML = "<i class=\"fas fa-heart\"></i>";
-
+                    counter.innerText = parseInt(counter.innerText) + 1 ;
                 } else{
                     love.style.color = "black";
                     love.innerHTML= "<i class=\"far fa-heart\"></i>";
+                    counter.innerText = parseInt(counter.innerText) - 1 ;
+
                 }
             });
 

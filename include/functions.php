@@ -85,3 +85,20 @@ function markNotification($user_id){
 
     $execute = $mysql->query($query);
 }
+
+function getPostLikes($post_id){
+    $mysql = new mysqli('localhost','root','','newinstagram');
+    $query = "SELECT * FROM likes WHERE post_id = '$post_id'";
+    $execute = $mysql->query($query);
+
+    return $execute->num_rows;
+}
+
+
+function getPostComments ($post_id){
+    $mysql = new mysqli('localhost','root','','newinstagram');
+    $query ="SELECT * FROM comments WHERE post_id = '$post_id'";
+    $execute = $mysql->query($query);
+
+    return $execute->fetch_all();
+}
